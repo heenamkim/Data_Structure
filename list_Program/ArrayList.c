@@ -24,14 +24,14 @@ void insert (List * list, int pos, Data data) {
         for (int i = list->count; i > pos; i--) {
             list->arr[i] = list->arr[i-1];
         }
-        list->arr[pos-1] = data;
+        list->arr[pos] = data;
         list->count++;
     }
 }
 
 Data delete (List * list, int pos) {
-    Data remove_data = list->arr[pos-1];
-    for (int i = pos-1; i < list->count-1; i++) {
+    Data remove_data = list->arr[pos];
+    for (int i = pos; i < list->count-1; i++) {
         list->arr[i] = list->arr[i+1];
     }
     list->count--;
@@ -39,7 +39,7 @@ Data delete (List * list, int pos) {
 
 }
 void replace (List * list, int pos, Data data) {
-    list->arr[pos-1] = data;
+    list->arr[pos] = data;
 }
 
 int isInList (List * list, Data data) {

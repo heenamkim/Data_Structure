@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include "MenuProgram.h"
 
+// 한 번에 컴파일 하는 방법
+// gcc -g *.c -> a.exe
+// gcc -o main -g *.c -> main.exe
 
 void runProgram() {
     printf("%s 관리프로그램\n", PROGRAM_NAME);
@@ -31,7 +34,7 @@ void insertData(List * list) {
     int pos;
     scanf("%d", &pos);
 
-    insert(list, pos, data);
+    insert(list, pos-1, data);
 }
 
 void replaceData(List * list) {
@@ -41,21 +44,21 @@ void replaceData(List * list) {
         printf("새로운 정보를 입력해 주세요\n");
         Data data = input();
 
-        replace(list, pos, data);
+        replace(list, pos-1, data);
 }
 
 void removeData(List * list) {
     printf("삭제할 위치를 입력해 주세요 (1~%d) >> ", list->count);
     int pos;
     scanf("%d", &pos);
-    delete(list, pos);
+    delete(list, pos-1);
 }
 void searchData(List * list) {
     printf("찾고싶은 정보를 입력해 주세요 >> ");
     char name[10];
     scanf("%s", name);
     if (getPosition(list, name) != -1) {
-        printf("찾고싶은 정보의 위치는 %d 입니다.", list->count);
+        printf("찾고싶은 정보의 위치는 %d 입니다.", list->count-1);
     }
     else {
         printf("찾고싶은 정보의 위치는 존재하지 않습니다.");
