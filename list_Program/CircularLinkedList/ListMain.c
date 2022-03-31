@@ -33,6 +33,12 @@ int main(void) {
 			case DISPLAY:
 				displayData(&list);
 				break;
+			case GETENTRY:
+				getEntryData(&list);
+				break;
+			case ISINLIST:
+				isInListData(&list);
+				break;
 			case CLEAR:
 				initData(&list);
 				break;

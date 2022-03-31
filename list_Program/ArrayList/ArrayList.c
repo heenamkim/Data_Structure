@@ -2,11 +2,11 @@
 #include "ArrayList.h"
 #include "bread.h"
 
-void init (List * list) {
+void init (ArrayList * list) {
     list->count = 0;
 }
 
-void append (List * list, Data data) {
+void append (ArrayList * list, Data data) {
     if (isFull(list)) {
         printf("리스트가 꽉 찼습니다. 리스트를 비어주세요");
     }
@@ -16,7 +16,7 @@ void append (List * list, Data data) {
     }
 }
 
-void insert (List * list, int pos, Data data) {
+void insert (ArrayList * list, int pos, Data data) {
     if (isFull(list)) {
         printf("리스트가 꽉 찼습니다. 리스트를 비어주세요");
     }
@@ -29,7 +29,7 @@ void insert (List * list, int pos, Data data) {
     }
 }
 
-Data delete (List * list, int pos) {
+Data delete (ArrayList * list, int pos) {
     Data remove_data = list->arr[pos];
     for (int i = pos; i < list->count-1; i++) {
         list->arr[i] = list->arr[i+1];
@@ -38,11 +38,11 @@ Data delete (List * list, int pos) {
     return remove_data;
 
 }
-void replace (List * list, int pos, Data data) {
+void replace (ArrayList * list, int pos, Data data) {
     list->arr[pos] = data;
 }
 
-int isInList (List * list, Data data) {
+int isInList (ArrayList * list, Data data) {
     for (int i = 0; i < list->count; i++) {
         if (isSame(list->arr[i].name, data.name)) {
             return TRUE;
@@ -51,26 +51,26 @@ int isInList (List * list, Data data) {
     return FALSE;
 }
 
-Data getEntry (List * list, int pos) {
+Data getEntry (ArrayList * list, int pos) {
     return list->arr[pos];
 }
 
-int getPosition (List * list, ID name) {
-    for (int i = 0 ; i < list->count; i++) {
+int getPosition (ArrayList * list, ID name) {
+    for (int i = 0 ; i < list -> count; i++) {
         if (isSame(list->arr[i].name, name)) {
             return i;
         }
     }
     return -1;
 }
-int isEmpty (List * list) {
+int isEmpty (ArrayList * list) {
     return list->count == 0;
 }
-int isFull (List * list) {
+int isFull (ArrayList * list) {
     return list->count == LIST_LEN;
 }
-void display (List * list) {
-    for (int i = 0 ; i < list->count; i++) {
+void display (ArrayList * list) {
+    for (int i = 0 ; i < list -> count; i++) {
         printf("%d\n", i+1);
         print(list->arr[i]);
         printf("\n");
